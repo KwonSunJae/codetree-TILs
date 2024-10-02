@@ -65,9 +65,9 @@ for i in range(L):
     temp1,temp2 = (0,0,0),(0,0,0)
     if query[i] == 'F':
         temp1,temp2=(0,0,-1),(0,0,1)          
-    elif query[start] == 'L':
+    elif query[i] == 'L':
         temp1,temp2=(0,1,0),(0,0,1)
-    elif query[start] == 'R':
+    elif query[i] == 'R':
         temp1,temp2=(0,0,-1),(0,1,0)
     
     x,y,d = add_d(x,y,d,temp1[0],temp1[1],temp1[2])
@@ -77,4 +77,4 @@ for i in range(L):
     nx,ny,nd = add_d(x,y,d,dx,dy,dd)
     res.append((nx,ny))
 
-print(len(set(res))+1)
+print(len(set(res)))
