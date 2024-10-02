@@ -82,5 +82,5 @@ for i in range(L):
     
     nx,ny,nd = add_d(x,y,d,dx,dy,dd)
     res.append((nx,ny))
-print(res)
+#print(res)
 print(len(set(res)))
