@@ -49,26 +49,21 @@ def go_query(left,right,start,end,node):
     mid = (start+end)//2
     left_node = go_query(left,right,start,mid,node*2)
     rifht_node = go_query(left,right, mid+1,end,node*2+1)
-
     x,y,d = left_node
-    #print(x,y,d)
     dx,dy,dd = rifht_node
-    #print(dx,dy,dd)
     return add_d(x,y,d,dx,dy,dd)
 L = len(query)
 init_query(1,0,L-1)
 
-#print(go_query(0,1,0,2,1))
 
 res=[]
-#print(dp)
-#print(go_query(0,1,0,2,1))
+
 for i in range(L):
     
     tx,ty,td = go_query(0,i-1,0,L-1,1)
-    #print(i,tx,ty,td)
+    
     dx,dy,dd = go_query(i+1,L-1,0,L-1,1)
-    #print(i,dx,dy,dd)
+    
     temp1,temp2 = (0,0,0),(0,0,0)
     if query[i] == 'F':
         temp1,temp2=(0,0,-1),(0,0,1)          
@@ -78,12 +73,12 @@ for i in range(L):
         temp1,temp2=(0,0,-1),(0,1,0)
     
     x,y,d = add_d(tx,ty,td,temp1[0],temp1[1],temp1[2])
-    #print("1step",x,y,d)
+    
     nx,ny,nd = add_d(x,y,d,dx,dy,dd)
     res.append((nx,ny))
     x,y,d = add_d(tx,ty,td,temp2[0],temp2[1],temp2[2])
-    #print("2step",x,y,d)
+    
     nx,ny,nd = add_d(x,y,d,dx,dy,dd)
     res.append((nx,ny))
-#print(dp)
+
 print(len(set(res)))
