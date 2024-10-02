@@ -17,7 +17,7 @@ def add_d(x,y,d,dx,dy,dd):
     elif (4+d)%4 == E:
         return (x+dy,y-dx ,(4+E+dd)%4)
     else :
-        return (x-dy,y-dx,(4+W+dd)%4)
+        return (x-dy,y+dx,(4+W+dd)%4)
 
 def init_query(node,start,end):
     if start == end:
@@ -61,9 +61,9 @@ res=[]
 for i in range(L):
     
     tx,ty,td = go_query(0,i-1,0,L-1,1)
-    
+    #print(tx,ty,td)
     dx,dy,dd = go_query(i+1,L-1,0,L-1,1)
-    
+    #print(dx,dy,dd)
     temp1,temp2 = (0,0,0),(0,0,0)
     if query[i] == 'F':
         temp1,temp2=(0,0,-1),(0,0,1)          
