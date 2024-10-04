@@ -71,7 +71,8 @@ for i in range(L):
         temp1,temp2=(0,1,0),(0,0,1)
     elif query[i] == 'R':
         temp1,temp2=(0,0,-1),(0,1,0)
-    
+    else:
+        continue
     
     x,y,d = add_d(tx,ty,td,temp1[0],temp1[1],temp1[2])
     
