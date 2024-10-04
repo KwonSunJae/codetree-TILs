@@ -20,12 +20,11 @@ while start != end:
     cnt +=1
     mid_idx = bisect.bisect_left(arr,mid)
     #print(mid_idx,mid)
-    
-    
+
 
     flag = True
 
-    if 2*mid_idx >=N:
+    if 2*mid_idx > N:
         flag = False
 
     for i in range(1,mid_idx):
