@@ -59,7 +59,7 @@ init_query(1,0,L-1)
 res=[]
 
 for i in range(L):
-    
+    print(ord(query[i]))
     tx,ty,td = go_query(0,i-1,0,L-1,1)
     #print(tx,ty,td)
     dx,dy,dd = go_query(i+1,L-1,0,L-1,1)
