@@ -12,14 +12,14 @@ for _ in range(N):
     arr.append(int(input()))
 
 start,end = 0,L
-cnt = 0
+cnt = 1
 arr.sort()
 
 ans = 0
 while start != end:
     mid = (start+end)/2
     cnt +=1
-    mid_idx = bisect.bisect_left(arr,mid)
+    mid_idx = bisect.bisect_right(arr,mid)
     #print(mid_idx,mid,cnt)
     if cnt == N:
         break
@@ -32,14 +32,15 @@ while start != end:
     for i in range(1,mid_idx):
         if not flag:
             break
-        if mid-arr[i] != arr[mid_idx+(mid_idx-i)]-mid :
+        #print(mid-arr[i],arr[mid_idx+(mid_idx-i-1)]-mid)
+        if mid-arr[i] != arr[mid_idx+(mid_idx-i-1)]-mid :
             flag = False
             break
 
     if not flag:
         end = arr[N-cnt]
     else:
-        ans +=1
+        ans +=mid_idx
     
         
 print(ans)
