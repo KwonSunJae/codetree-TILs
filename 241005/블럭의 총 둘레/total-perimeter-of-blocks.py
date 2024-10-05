@@ -3,9 +3,9 @@ import sys
 
 input = sys.stdin.readline
 N = int(input())
-maps = {(r,c):0 for r in range(1,N+1) for c in range(1,N+1)}
+maps = {(r,c):0 for r in range(1,101) for c in range(1,101)}
 
-checked = {(r,c):False for r in range(1,N+1) for c in range(1,N+1)}
+checked = {(r,c):False for r in range(1,101) for c in range(1,101)}
 
 for _ in range(N):
     a,b = map(int,input().split())
@@ -13,11 +13,11 @@ for _ in range(N):
 
 q = []
 
-for outline in range(1,N+1): 
+for outline in range(1,101): 
     q.append((0,outline))
-    q.append((N+1,outline))
+    q.append((101,outline))
     q.append((outline,0 ))
-    q.append((outline,N+1))
+    q.append((outline,101))
 
 dr = [1,-1,0,0]
 dc = [0,0,1,-1]
