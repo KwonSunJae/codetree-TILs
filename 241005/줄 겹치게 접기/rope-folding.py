@@ -17,17 +17,15 @@ arr.sort()
 
 ans = 0
 while start != end:
-    mid = (start+end)/2
-    cnt +=1
-    mid_idx = bisect.bisect_right(arr,mid)
-    #print(mid_idx,mid,cnt)
-    if cnt > N:
+    if cnt >= N :
         break
+    mid = (start+end)/2
+    mid_idx = bisect.bisect_right(arr,mid)
 
     flag = True
 
     if 2*mid_idx > N:
-
+        
         flag = False
 
     for i in range(1,mid_idx):
@@ -37,11 +35,11 @@ while start != end:
         if mid-arr[i] != arr[mid_idx+(mid_idx-i-1)]-mid :
             flag = False
             break
-
+    
     if not flag:
         end = arr[N-cnt]
     else:
         ans +=mid_idx
-    
+    cnt +=1
         
 print(ans)
