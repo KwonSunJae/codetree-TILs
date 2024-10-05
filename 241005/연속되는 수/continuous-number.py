@@ -19,6 +19,8 @@ def check_list(start):
     lastcard = -1
     lens = 1
     for i in range(start+1,N):
+        if i == N-1 and start !=0:
+            return (lens+1 ,start)
         if arr[i]!=target :
             if wildcard == 0 or wildcard==arr[i]:
                 wildcard = arr[i]
@@ -35,6 +37,7 @@ maxs = 0
 i =0
 while i < N:
     lens, ended = check_list(i)
+    #print(lens, arr[i])
     if ended == -1:
         i +=1
         continue
