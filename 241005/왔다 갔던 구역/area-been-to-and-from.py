@@ -48,14 +48,32 @@ for i in range(N):
     else :
         continue
 
-lens = 0
-
 
 def getDist(bounds):
     return bounds[1] - bounds[0]
 
-ans = set(ans)
-for s in ans:
-    lens += getDist(s)
+ans = list(set(ans))
+ans.sort()
+piv = 0
+minl, maxr = ans[piv]
+lens = getDist(ans[piv])
+
+#print(ans)
+piv+=1
+while piv != len(ans):
+
+    ll,rr = ans[piv]
+    if ll < maxr and rr <= maxr:
+        pass
+    elif ll <= maxr and rr > maxr:
+        lens += getDist((maxr,rr))
+        maxr = rr
+    elif ll > maxr  :
+        minl,maxr = ans[piv]
+        lens += getDist(ans[piv])
+    
+    piv+=1
+    
+
 
 print(lens)
