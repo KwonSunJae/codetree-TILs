@@ -16,7 +16,8 @@ for _ in range(K):
     arr.append((a,b)if a <b else (b,a))
 arr.sort(reverse = True)
 
-start, end = arr.pop()
+
+start, end = i,hate = arr.pop()
 ans = 1
 
 while arr:
@@ -34,5 +35,7 @@ while arr:
         end = hate
     
 if end != N:
+    ans +=1
+if hate == N:
     ans +=1
 print(ans)
