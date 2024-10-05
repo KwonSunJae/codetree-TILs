@@ -40,5 +40,5 @@ while i < N:
         continue
 
     maxs = max(lens, maxs)
-    i = ended
+    i += 1
 print(maxs)
