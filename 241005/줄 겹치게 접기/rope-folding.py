@@ -21,12 +21,13 @@ while start != end:
     cnt +=1
     mid_idx = bisect.bisect_right(arr,mid)
     #print(mid_idx,mid,cnt)
-    if cnt == N:
+    if cnt > N:
         break
 
     flag = True
 
     if 2*mid_idx > N:
+
         flag = False
 
     for i in range(1,mid_idx):
