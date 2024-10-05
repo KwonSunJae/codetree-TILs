@@ -19,7 +19,7 @@ def check_list(start):
     lastcard = -1
     lens = 1
     for i in range(start+1,N):
-        if i == N-1 and start !=0:
+        if i == N-1 and start !=0 and arr[i]==target:
             return (lens+1 ,start)
         if arr[i]!=target :
             if wildcard == 0 or wildcard==arr[i]:
