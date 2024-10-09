@@ -13,7 +13,7 @@ input = sys.stdin.readline
 
 R,C,K = map(int,input().split())
 ## 골렘은 십자 모양의 구조를 가지고 있으며, 중앙 칸을 포함해 총 5칸을 차지합니다
-maps = {(r,c):(EMPT,0) for r in range(-1,R+1) for c in range(1,C+1)}
+maps = {(r,c):(EMPT,0) for r in range(-2,R+1) for c in range(1,C+1)}
 ## i번째로 숲을 탐색하는 골렘은 숲의 가장 북쪽에서 시작해 골렘의 중앙이 ci 열이 되도록 하는 위치에서 내려오기 시작합니다.
 
 dr = [-1,0,1,0]
