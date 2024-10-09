@@ -172,18 +172,19 @@ def dfs(idx):
             maxs = max(maxs, dfs(nidx))
             checked[nidx] = False
     return maxs
-checked=[False for _ in range(R+1)]
+checked=[False for _ in range(K+1)]
 ans = 0
 for i in range(K):
     c,d = map(int,input().split())
     arr.append(simulate(-1,c,d,i))
-    if arr[-1][0] <= 0:
+    if arr[-1][0] <= 1:
         maps = {(r,c):(EMPT,0) for r in range(-1,R+1) for c in range(1,C+1)}
         continue
     
     checked[i] = True
     ans += dfs(i)
     checked[i] = False
+    #print_map()
     #print(ans)
 
 print(ans)
