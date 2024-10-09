@@ -193,7 +193,7 @@ for i in range(K):
     c,d = map(int,input().split())
     arr.append(simulate(-1,c,d,i))
     if arr[-1][0] <= 1:
-        maps = {(r,c):(EMPT,0) for r in range(-1,R+1) for c in range(1,C+1)}
+        maps = {(r,c):(EMPT,0) for r in range(-2,R+1) for c in range(1,C+1)}
         continue
     
     ans += bfs(i)
