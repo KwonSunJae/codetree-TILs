@@ -1,4 +1,5 @@
 import sys
+import collections
 NTH = 0
 EST = 1
 STH = 2
@@ -137,7 +138,7 @@ def print_map():
     for r in range(1,R+1):
         ans = ''
         for c in range(1,C+1):
-            ans += str(maps[r,c][0])
+            ans += str(maps[r,c]) 
         print(ans)
 
 def where_exit(r,c,d):
@@ -153,26 +154,40 @@ def where_exit(r,c,d):
         return (-1,-1)
 
 arr = []
-def dfs(idx):
-    #print("visit",idx)
+
+
+def bfs(idx):
     tr,tc,td = arr[idx]
     #print(arr)
-    if tr <=0:
-        return 0
     maxs = tr + 1
-    tr,tc = where_exit(tr,tc,td)
-    
-    for i in range(4):
-        nr ,nc = tr + dr[i], tc + dc[i]
-        if not (nr,nc) in maps:
-            continue
-        types,nidx =  maps[(nr,nc)]
-        if types > EMPT and not checked[nidx]:
-            checked[nidx] = True
-            maxs = max(maxs, dfs(nidx))
-            checked[nidx] = False
+    q = collections.deque()
+    q.append( where_exit(tr,tc,td))
+    checked=[False for _ in range(idx+1)]
+    checked[idx] = True
+    while q:
+        r,c = q.popleft()
+        #print("check",r,c)
+        #print(checked)
+        if maxs == R:
+            return R
+        for i in range(4):
+            nr ,nc = r + dr[i], c + dc[i]
+            if not (nr,nc) in maps:
+                #print("not key")
+                continue
+            types,nidx =  maps[(nr,nc)]
+            #print(nr,nc,nidx,types)
+            if types > EMPT and not checked[nidx]:
+                
+                checked[nidx] = True
+                nr,nc,nd = arr[nidx]
+                maxs = max(maxs,nr+1)
+                q.append(where_exit(nr,nc,nd))
+            
     return maxs
-checked=[False for _ in range(K+1)]
+
+
+
 ans = 0
 for i in range(K):
     c,d = map(int,input().split())
@@ -181,9 +196,8 @@ for i in range(K):
         maps = {(r,c):(EMPT,0) for r in range(-1,R+1) for c in range(1,C+1)}
         continue
     
-    checked[i] = True
-    ans += dfs(i)
-    checked[i] = False
+    ans += bfs(i)
+
     #print_map()
     #print(ans)
 
