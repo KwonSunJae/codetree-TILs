@@ -94,7 +94,9 @@ def calc_8(a,b):
 for k in range(1,K+1):
     # 공격자 선정
     attacker, attacked= get_weak(), get_strong()
-    
+
+    if attacker == attacked:
+        break
 
     power = maps[attacker][0] + N+M
     #print(attacker,attacked,power)
@@ -104,6 +106,7 @@ for k in range(1,K+1):
     if not attack_lis:
         attack_lis = calc_8(attacker,attacked)
 
+    
     #print("attak lis", attack_lis)
 
     for a in attack_lis:
@@ -123,6 +126,8 @@ for k in range(1,K+1):
     else:
         maps[attacked] = (maps[attacked][0]-power,maps[attacked][1])
         
+    maps[attacker] = (power,k)
+
 
     for a in maps.keys():
         if a in attack_lis:
@@ -131,7 +136,7 @@ for k in range(1,K+1):
             continue 
         maps[a] =  (maps[a][0]+1 ,maps[a][1])
     
-    maps[attacker] = (power,k)
+    
     #print_maps()
         
 
