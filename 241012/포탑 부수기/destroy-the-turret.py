@@ -127,7 +127,8 @@ for k in range(1,K+1):
     for a in maps.keys():
         if a in attack_lis:
             continue
-        
+        if a == attacked or a == attacker:
+            continue 
         maps[a] =  (maps[a][0]+1 ,maps[a][1])
     
     maps[attacker] = (power,k)
