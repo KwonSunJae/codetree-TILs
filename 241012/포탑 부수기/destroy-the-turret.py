@@ -36,7 +36,7 @@ def get_strong():
 def calc_shortest_path(a,b):
 
     dr = [0,1,0,-1]
-    dc = [1,0,-1,1]
+    dc = [1,0,-1,0]
     checked= { (r,c): False for r in range(N) for c in range(M)}
     q= collections.deque()
     q.append((a,[]))
@@ -114,7 +114,7 @@ for k in range(1,K+1):
             continue 
 
         p,t = maps[a]
-        if p <= power //2 :
+        if p <= power//2 :
             del maps[a] 
         else :
             maps[a] = (p-power//2,t)
