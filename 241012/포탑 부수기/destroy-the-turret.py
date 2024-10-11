@@ -78,10 +78,10 @@ def calc_8(a,b):
 
     r,c = b
 
-    dr = [-1,-1,-1,0,0,1,1,1]
-    dc = [-1,0,1,-1,1,-1,0,1]
+    dr = [-1,-1,-1,0,0,0,1,1,1]
+    dc = [-1,0,1,-1,0,1,-1,0,1]
     res = []
-    for i in range(8):
+    for i in range(9):
         nr,nc = (4+r+dr[i])%4,(4+c+dc[i])%4
 
         if (nr,nc) not in maps:
