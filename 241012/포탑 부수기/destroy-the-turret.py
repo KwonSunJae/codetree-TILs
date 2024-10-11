@@ -48,7 +48,7 @@ def calc_shortest_path(a,b):
         if k == b:
             return path
         for i in range(4):
-            nr,nc = (4+k[0]+dr[i])%4, (4+k[1] + dc[i])%4
+            nr,nc = (N+k[0]+dr[i])%N, (M+k[1] + dc[i])%M
 
             if (nr,nc) not in maps:
                 continue
