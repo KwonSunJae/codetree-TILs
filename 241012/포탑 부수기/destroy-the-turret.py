@@ -107,7 +107,7 @@ for k in range(1,K+1):
     #print("attak lis", attack_lis)
 
     for a in attack_lis:
-        if a == attacked:
+        if a == attacked or a == attacker:
             continue 
 
         p,t = maps[a]
