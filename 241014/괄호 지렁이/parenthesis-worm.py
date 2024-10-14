@@ -20,6 +20,7 @@ chk= [[False for _ in range(N)] for _ in range(N)]
 
 def backtracking(r,c,upper,depth, maxs):
     res = 0
+    #print(r,c,upper,depth,maxs)
     if not upper and depth ==0:
         return maxs*2
     
@@ -58,4 +59,5 @@ def backtracking(r,c,upper,depth, maxs):
     
     return res
 
+chk[0][0] = True
 print(backtracking(0,0,True,1,1))
